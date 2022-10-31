@@ -2,7 +2,8 @@
 
 import { contractConfig } from "@/constants/contract"
 import { useEffect, useState } from "react"
-import { useContractRead } from "wagmi"
+import { useContractRead ,useContractWrite ,usePrepareContractWrite} from "wagmi"
+
 import Button from "./button"
 
 type Book = {
@@ -19,6 +20,8 @@ const BookList = () => {
         functionName: 'viewBookList',
         watch: true
     })
+    
+    
 
     useEffect(() => {
         if (books) {

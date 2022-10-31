@@ -17,7 +17,6 @@ const SideBar = () => {
     const [navHeight] = useAtom(navbarHeightAtom);
     const [eventList] = useAtom(eventsAtom)
 
-    console.log(eventList)
 
     const renderIcon = (type: string) => {
         if (type === 'add') {

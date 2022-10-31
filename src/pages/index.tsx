@@ -9,7 +9,7 @@ import { useAtom } from 'jotai'
 import { useContractEvent } from 'wagmi'
 
 // Utils import
-import { Event, eventsAtom, navbarHeightAtom } from '@/utils/global-state'
+import { Event, eventsAtom, navbarHeightAtom, transactionHashesAtom } from '@/utils/global-state'
 import { contractConfig } from '@/constants/contract'
 
 
@@ -20,6 +20,7 @@ export default function Home() {
 
   const [navBarHeight] = useAtom(navbarHeightAtom)
   const [eventList, setEventList] = useAtom(eventsAtom)
+  const [transactinsHashes, setTransactinsHashes] = useAtom(transactionHashesAtom)
 
   useContractEvent({
     ...contractConfig,
@@ -41,7 +42,8 @@ export default function Home() {
       }
 
       setEventList([...eventList, newEvent])
-
+      const newHashes = transactinsHashes.filter((hash) => hash != node.transactionHash)
+      setTransactinsHashes(newHashes)
     }
   })
 

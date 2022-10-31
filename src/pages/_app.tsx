@@ -23,6 +23,7 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import SideBar from '@/components/sidebar';
+import TranscationToast from '@/components/toast-container';
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -52,6 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <main className='flex w-full'>
         <Component {...pageProps} />
         <SideBar />
+        <TranscationToast />
       </main>
     </RainbowKitProvider>
   </WagmiConfig>
