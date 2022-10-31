@@ -1,0 +1,1 @@
+export const POLYSCAN_URL="https://mumbai.polygonscan.com/tx"

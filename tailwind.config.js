@@ -6,11 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        brandBg : '#1D1D20',
-        brandAccent :"#4946FF"
-      }
+      colors: {
+        brandBg: "#1D1D20",
+        brandAccent: "#4946FF",
+        modalBg: "#3C3A41",
+      },
     },
   },
   plugins: [],
-}
+};

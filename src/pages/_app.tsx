@@ -22,6 +22,7 @@ import {
 } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
+import SideBar from '@/components/sidebar';
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -45,11 +46,13 @@ const wagmiClient = createClient({
 export default function App({ Component, pageProps }: AppProps) {
   return <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider theme={darkTheme({
-      accentColor : '#4946FF',
+      accentColor: '#4946FF',
     })} chains={chains}>
       <Navbar />
-
-      <Component {...pageProps} />
+      <main className='flex w-full'>
+        <Component {...pageProps} />
+        <SideBar />
+      </main>
     </RainbowKitProvider>
   </WagmiConfig>
 }
