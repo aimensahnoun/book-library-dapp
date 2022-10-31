@@ -47,6 +47,44 @@ export default function Home() {
     }
   })
 
+  useContractEvent({
+    ...contractConfig,
+    eventName: 'BookBorrowed',
+    listener: (bookId, user, node) => {
+
+
+      const newEvent: Event = {
+        type: 'borrow',
+        bookId: bookId.toString(),
+        user: user.toString(),
+        transcationHash: node.transactionHash,
+      }
+
+      setEventList([...eventList, newEvent])
+      const newHashes = transactinsHashes.filter((hash) => hash != node.transactionHash)
+      setTransactinsHashes(newHashes)
+    }
+  })
+
+  useContractEvent({
+    ...contractConfig,
+    eventName: 'BookReturned',
+    listener: (bookId, user, node) => {
+
+
+      const newEvent: Event = {
+        type: 'return',
+        bookId: bookId.toString(),
+        user: user.toString(),
+        transcationHash: node.transactionHash,
+      }
+
+      setEventList([...eventList, newEvent])
+      const newHashes = transactinsHashes.filter((hash) => hash != node.transactionHash)
+      setTransactinsHashes(newHashes)
+    }
+  })
+
   return (
     <div style={{
       height: "calc(100vh - " + navBarHeight + "px)",
