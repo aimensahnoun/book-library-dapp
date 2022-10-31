@@ -3,6 +3,8 @@ import { useAtom } from "jotai"
 import { MdRssFeed } from "react-icons/md"
 import { BiAddToQueue } from "react-icons/bi"
 import { BsBook } from "react-icons/bs"
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
 
 // Utils import
 import { Event, eventsAtom, navbarHeightAtom } from '@/utils/global-state';
@@ -25,6 +27,9 @@ const SideBar = () => {
         }
     }
 
+    const [animationParent] = useAutoAnimate()
+
+
     return <aside style={{
         height: `calc(100vh - ${navHeight + 1}px)`,
     }} className={`w-[31rem] bg-brandBg border-l-[1px] border-l-gray-700 p-4 overflow-y-scroll`}>
@@ -33,7 +38,7 @@ const SideBar = () => {
             <span className="font-bold text-lg">Activity Feed</span>
 
         </div>
-        <div className="flex flex-col-reverse gap-y-2 flex-wrap justify-center">
+        <div ref={animationParent as any} className="flex flex-col-reverse gap-y-2 flex-wrap justify-center">
             {
                 eventList.map((event: Event, index) => {
                     return <div key={event.transcationHash} className="flex items-center gap-x-4">
