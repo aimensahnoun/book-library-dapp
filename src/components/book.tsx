@@ -66,9 +66,7 @@ const Book = ({ name, count, bookId }: { name: string, count: number, bookId: nu
         ...returnBookConfig as any,
     })
 
-    if (bookId === 1) {
-        console.log(hasUserBorrowedBook)
-    }
+
 
     return <div className="w-full h-[5rem] rounded-lg bg-modalBg flex items-center justify-between p-4" key={bookId}>
         <div className="flex flex-col gap-y-2">

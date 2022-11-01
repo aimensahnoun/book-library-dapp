@@ -91,7 +91,6 @@ const AddBookModal: React.FC<Props> = ({ setIsModalOpen }) => {
                     parseInt(numOfCopies) === 0 || title.length == 0
                 } className={`${parseInt(numOfCopies) === 0 || title.length == 0 ? "bg-gray-700 cursor-not-allowed shadow-none" : ""}`}
                     onClick={async () => {
-                        console.log(addBook)
                         if (addBook.writeAsync) {
                             const tx = await addBook.writeAsync()
                             setTransactionHashes([...transactionHashes, tx.hash])
