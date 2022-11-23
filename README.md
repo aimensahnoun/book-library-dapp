@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a project related to the [LimeAcademy](https://limeacademy.tech) trining. It is a book library dapp that allows the owner to add books, and for users to borrow and return books.
 
-## Getting Started
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) ![Lines of code](https://img.shields.io/tokei/lines/github/aimensahnoun/book-library-dapp) ![GitHub top language](https://img.shields.io/github/languages/top/aimensahnoun/book-library-dapp)
 
-First, run the development server:
+## Addition of books
+Adding the books is only an action that is allowed to the [`smart contract`](https://github.com/aimensahnoun/BookLibrary-hh) owner, and it is made simpler on the front-end side with a button and modal for entering the details of the book.
 
-```bash
-npm run dev
-# or
-yarn dev
+![Book Library Dapp](https://user-images.githubusercontent.com/62159014/203454237-22624b1f-e8d4-4867-96db-47bbae609778.png)
+![Book Library | Add Book Modal](https://user-images.githubusercontent.com/62159014/203454259-e202b54e-894a-4797-b630-768b769c0439.png)
+
+Any other user that is connected the app, would not be able to see or interact with the `add book` button.
+
+## Borrowing and returning 
+Users are able to `borrow` and `return` by a simple click of a button, after a transaction is signed they become the holders of the book , and the activity feed will show their transaction.
+
+![Borrowing a book](https://user-images.githubusercontent.com/62159014/203454564-9da141cd-78a8-4899-aa41-c14e3870133f.png)
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+
+```
+#Alchemy API key for Polygon Mumbai
+NEXT_PUBLIC_ALCHEMY_KEY=
+
+#Smart contract address deployed onto Polygon Mumbai
+NEXT_PUBLIC_POLYGON_CONTRACT_ADDRESS=0xa165F07937B909b907B9A68438b73B651FE4D06D
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Run Locally
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Clone the project
 
-## Learn More
+```bash
+  git clone https://github.com/aimensahnoun/AimBridge
+```
 
-To learn more about Next.js, take a look at the following resources:
+Go to the project directory
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  cd my-project
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Install dependencies
 
-## Deploy on Vercel
+```bash
+  npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  #or
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  yarn instal
+```
+
+Start the server
+
+```bash
+  npm run dev
+
+  #or
+
+  yarn dev
+
+```
